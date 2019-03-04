@@ -1,0 +1,14 @@
+<%- include('partials/header'); -%>
+        <%if(posts.length <= 0){%>
+          <h1>Make a new post</h1>
+        <%}else{%>
+                <% posts.forEach(post => { %>
+                        <h1><%= post.title %></h1>
+                        <% if(post.body.length >= 100){%>
+                        <p><%= post.body.substring(0, 100) + "..." %> <a href="/post/<%= post.title %>">Read more</a></p>
+                        <% }else{%>
+                        <p><%= post.body %> </p><a href="/post/<%= post.title %>">Read more</a>
+                        <% }%>
+                <% }); %>
+        <% } %>
+<%- include('partials/footer') -%>
